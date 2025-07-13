@@ -580,9 +580,7 @@ def convert():
 @click.option('--quality', default=95, type=int, help='Quality for lossy formats (1-100)')
 def img(path, target_format, quality):
     """Convert images to different formats."""
-    try:
-        from PIL import Image
-    except ImportError:
+    if not PIL_AVAILABLE:
         click.echo("Error: Pillow library not installed. Run 'pip install Pillow'")
         return
     
