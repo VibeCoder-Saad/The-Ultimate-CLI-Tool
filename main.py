@@ -191,7 +191,7 @@ def file():
     pass
 
 @file.command()
-@click.option('--path', default=None, help='Path to organize (defaults to Downloads)')
+@click.argument('path', required=False)
 @click.option('--dry-run', is_flag=True, help='Show what would be done without making changes')
 def organize(path, dry_run):
     """Organize files into subdirectories based on file extensions."""
