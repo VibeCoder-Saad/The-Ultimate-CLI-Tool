@@ -628,9 +628,7 @@ def img(path, target_format, quality):
 @click.option('--output', default=None, help='Output audio file name')
 def extract_audio(video_file, output):
     """Extract audio track from video file."""
-    try:
-        from moviepy.editor import VideoFileClip
-    except ImportError:
+    if not MOVIEPY_AVAILABLE:
         click.echo("Error: moviepy library not installed. Run 'pip install moviepy'")
         return
     
